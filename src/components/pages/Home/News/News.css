@@ -1,0 +1,24 @@
+.news-title {
+  transform: translateY(5px);
+  transition: transform 0.2s ease;
+}
+
+.posted-time {
+  opacity: 0;
+  transform: translateX(-200px);
+  transition: transform 0.2s ease;
+}
+.news-body:hover {
+  cursor: pointer;
+  transform: translateY(-10px);
+  transition: transform 0.3s ease;
+}
+.news-body:hover .news-title {
+  transform: translateY(-5px);
+}
+
+.news-body:hover .posted-time {
+  display: block;
+  opacity: 100;
+  transform: translateX(0px);
+}
