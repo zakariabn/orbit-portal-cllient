@@ -1,7 +1,16 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        navBgColor: 'rgba(255, 255, 255, .06)',
+        navBgColorNotHome: 'rgba(255, 255, 255)'
+      },
+      backgroundImage: {
+        'hero-pattern': "url('/img/hero-pattern.svg')",
+        'footer-texture': "url('/img/footer-texture.png')",
+      }
+    },
   },
 
   // daisyUI config

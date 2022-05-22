@@ -5,7 +5,7 @@ import Home from './components/pages/Home/Home';
 
 function App() {
   return (
-    <div className="App">
+    <div className="relative flex flex-col items-center">
       <Navigation></Navigation>
 
       <Routes>
