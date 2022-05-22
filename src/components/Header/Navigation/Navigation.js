@@ -8,6 +8,7 @@ import CustomLink from "../../sheared/CustomLink/CustomLink";
 const Navigation = () => {
   const [isHome, setIsHome] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
+  // const [user] = useAuthState();
 
   const location = useLocation();
   useEffect(() => {
@@ -20,12 +21,12 @@ const Navigation = () => {
       className={`${
         isHome
           ? "absolute max-w-screen-2xl w-full"
-          : "max-w-screen-2xl w-full block"
+          : "max-w-screen w-full block"
       }`}>
       {/* nav container */}
       <nav
         className={`${
-          isHome ? "bg-navBgColor text-white" : "bg-slate-300 text-black"
+          isHome ? "bg-navBgColor text-white" : "bg-navBgColorNotHome text-white"
         } px-2 sm:px-10  py-4 shadow-lg`}>
         <div className="max-w-screen-lg w-full mx-auto flex justify-between items-center ">
           <div className="flex items-center gap-5">
@@ -62,6 +63,7 @@ const Navigation = () => {
           </div>
 
           <div className=" font-medium">
+            <CustomLink to="/login">Login</CustomLink>
             <CustomLink to="/login">Login</CustomLink>
           </div>
         </div>

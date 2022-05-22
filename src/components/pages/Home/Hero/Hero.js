@@ -1,9 +1,11 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import bgImage from "../../../../asset/images/hero-banner/hero_banner-3.jpg";
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <div
       style={heroCustomStyle}
@@ -20,7 +22,7 @@ const Hero = () => {
             <FontAwesomeIcon icon={faArrowRight} className="ml-4" />
           </button>
           <button className="btn btn-sm bg-transparent text-white border-white rounded-full hover:bg-transparent">
-            Order Now
+            order now
             <FontAwesomeIcon icon={faArrowRight} className="ml-4" />
           </button>
         </div>

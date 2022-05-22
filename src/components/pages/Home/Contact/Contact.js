@@ -5,7 +5,7 @@ import contactMap from "../../../../asset/images/contact_sectino_map.png";
 
 const Contact = () => {
   return (
-    <div class="max-w-screen-lg px-4">
+    <div class="max-w-screen-lg px-4 mb-20" id="contact">
       <div class="flex flex-col-reverse md:flex-row-reverse gap-10">
         <div className="flex-1 flex justify-center overflow-hidden">
           <img src={contactMap} class="max-w-sm w-full rounded-lg" alt="" />

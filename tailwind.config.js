@@ -4,7 +4,7 @@ module.exports = {
     extend: {
       colors: {
         navBgColor: 'rgba(255, 255, 255, .06)',
-        navBgColorNotHome: 'rgba(255, 255, 255)'
+        navBgColorNotHome: '#232323',
       },
       backgroundImage: {
         'hero-pattern': "url('/img/hero-pattern.svg')",
