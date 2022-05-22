@@ -13,6 +13,7 @@ const Navigation = () => {
   useEffect(() => {
     setIsHome(location.pathname === "/" ? true : false);
   }, [location]);
+  
 
   return (
     <div
@@ -46,15 +47,17 @@ const Navigation = () => {
             <div
               className={` ${
                 navOpen ? "left-0" : "left-[-200px]"
-              } w-[200px] h-[300px] bg-blue-900 font-medium absolute pl-5 pr-5 top-[82px] md:hidden gap-4 duration-200 text-xl rounded-[0rem_1rem_1rem_0rem] ` }>
+              } w-[200px] h-[300px] font-medium absolute px-5 py-4 top-[82px] md:hidden gap-4 duration-200 text-xl rounded-[0rem_1rem_1rem_0rem] text-black menu bg-base-100 shadow-md` }>
               <CustomLink to="/">Home</CustomLink>
               <CustomLink to="/about">About</CustomLink>
+              <CustomLink to="/store">Store</CustomLink>
             </div>
 
             {/* fo tablet and desktop width */}
             <div className="font-medium hidden md:flex gap-4 duration-150">
               <CustomLink to="/">Home</CustomLink>
               <CustomLink to="/about">About</CustomLink>
+              <CustomLink to="/store">Store</CustomLink>
             </div>
           </div>
 

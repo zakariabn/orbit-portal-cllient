@@ -6,7 +6,7 @@ const BusinessSummary = () => {
       <div>
         {/* <h1 className="text-center text-3xl text-orange-400 font-bold">Business Stats</h1> */}
       </div>
-      <div class="flex justify-around">
+      <div class="flex flex-col md:flex-row justify-center items-center">
         <div class="stat flex flex-col items-center">
           <div class="stat-title font-medium text-black ">Downloads</div>
           <div class="stat-value text-orange-600">31K</div>
