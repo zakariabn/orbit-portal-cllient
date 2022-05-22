@@ -46,7 +46,7 @@ const Navigation = () => {
             <div
               className={` ${
                 navOpen ? "left-0" : "left-[-200px]"
-              } w-[200px] h-[300px] bg-blue-900 font-medium absolute pl-5 pr-5 top-[82px] md:hidden gap-4 duration-200 text-xl rounded-[0rem_1rem_1rem_0rem]` }>
+              } w-[200px] h-[300px] bg-blue-900 font-medium absolute pl-5 pr-5 top-[82px] md:hidden gap-4 duration-200 text-xl rounded-[0rem_1rem_1rem_0rem] ` }>
               <CustomLink to="/">Home</CustomLink>
               <CustomLink to="/about">About</CustomLink>
             </div>
