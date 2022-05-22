@@ -7,6 +7,7 @@ import CustomLink from "../../sheared/CustomLink/CustomLink";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import userPlaceHolderImg from "../../../asset/images/user-account-img-placeholder.png";
+import { signOut } from "firebase/auth";
 
 const Navigation = () => {
   const [isHome, setIsHome] = useState(false);
@@ -18,6 +19,11 @@ const Navigation = () => {
   useEffect(() => {
     setIsHome(location.pathname === "/" ? true : false);
   }, [location]);
+
+  function handelSignOut() {
+    signOut(auth);
+    setOpenModal(false);
+  }
 
   return (
     <div
@@ -71,14 +77,14 @@ const Navigation = () => {
             {!user ? (
               <>
                 <CustomLink to="/login">Login</CustomLink>
-                <CustomLink to="/login">Sign Up</CustomLink>
+                <CustomLink to="/sign-up">Sign Up</CustomLink>
               </>
             ) : (
               <>
                 <div
                   className="w-[45px] h-[45px] bg-slate-400 rounded-full overflow-hidden hover:cursor-pointer shadow-md shadow-gray-600"
                   onClick={() => setOpenModal(!openModal)}>
-                  <img src={userPlaceHolderImg} alt="" />
+                  <img src={user?.photoURL || userPlaceHolderImg} alt="" />
                 </div>
               </>
             )}
@@ -87,15 +93,23 @@ const Navigation = () => {
           {/* user info popup modal */}
           {openModal && (
             <div className="absolute top-[4rem] right-0 md:right-[-12rem] bg-white min-w-[200px] text-black rounded-lg shadow-md">
+
               <div className="w-full flex flex-col items-center px-2 py-4">
-                <img
-                  src={user?.photoURL || userPlaceHolderImg}
-                  alt=""
-                  className="w-[60px] mb-3 rounded-full"
-                />
-                <h3 className="text-xl font-medium">
-                  {user?.displayName || "User"}
-                </h3>
+                <div className="flex flex-col items-center mb-5">
+                  <img
+                    src={user?.photoURL || userPlaceHolderImg}
+                    alt=""
+                    className="w-[60px] mb-3 rounded-full"
+                  />
+                  <h3 className="text-xl font-medium">
+                    {user?.displayName || "User"}
+                  </h3>
+                  <p>{user?.email}</p>
+                </div>
+
+                <button onClick={handelSignOut} className="btn btn-sm">
+                  Log Out
+                </button>
               </div>
             </div>
           )}
