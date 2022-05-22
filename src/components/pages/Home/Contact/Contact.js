@@ -5,14 +5,14 @@ import contactMap from "../../../../asset/images/contact_sectino_map.png";
 
 const Contact = () => {
   return (
-    <div class="max-w-screen-lg px-4 mb-20" id="contact">
-      <div class="flex flex-col-reverse md:flex-row-reverse gap-10">
+    <div className="max-w-screen-lg px-4 mb-20" id="contact">
+      <div className="flex flex-col-reverse md:flex-row-reverse gap-10">
         <div className="flex-1 flex justify-center overflow-hidden">
-          <img src={contactMap} class="max-w-sm w-full rounded-lg" alt="" />
+          <img src={contactMap} className="max-w-sm w-full rounded-lg" alt="" />
         </div>
         <div className="flex-1 flex-col justify-center px-4">
-          <h1 class="text-5xl font-bold">Contact Us</h1>
-          <p class="py-6">
+          <h1 className="text-5xl font-bold">Contact Us</h1>
+          <p className="py-6">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.

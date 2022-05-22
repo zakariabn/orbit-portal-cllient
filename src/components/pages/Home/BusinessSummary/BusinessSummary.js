@@ -6,29 +6,29 @@ const BusinessSummary = () => {
       <div>
         {/* <h1 className="text-center text-3xl text-orange-400 font-bold">Business Stats</h1> */}
       </div>
-      <div class="flex flex-col md:flex-row justify-center items-center">
-        <div class="stat flex flex-col items-center">
-          <div class="stat-title font-medium text-black ">Downloads</div>
-          <div class="stat-value text-orange-600">31K</div>
-          <div class="stat-desc">Jan 1st - Feb 1st</div>
+      <div className="flex flex-col md:flex-row justify-center items-center">
+        <div className="stat flex flex-col items-center">
+          <div className="stat-title font-medium text-black ">Downloads</div>
+          <div className="stat-value text-orange-600">31K</div>
+          <div className="stat-desc">Jan 1st - Feb 1st</div>
         </div>
 
-        <div class="stat flex flex-col items-center">
-          <div class="stat-title font-medium text-black ">New Users</div>
-          <div class="stat-value text-orange-600">4,200</div>
-          <div class="stat-desc">↗︎ 400 (22%)</div>
+        <div className="stat flex flex-col items-center">
+          <div className="stat-title font-medium text-black ">New Users</div>
+          <div className="stat-value text-orange-600">4,200</div>
+          <div className="stat-desc">↗︎ 400 (22%)</div>
         </div>
 
-        <div class="stat flex flex-col items-center">
-          <div class="stat-title font-medium text-black ">New Registers</div>
-          <div class="stat-value text-orange-600">1,200</div>
-          <div class="stat-desc">↘︎ 90 (14%)</div>
+        <div className="stat flex flex-col items-center">
+          <div className="stat-title font-medium text-black ">New Registers</div>
+          <div className="stat-value text-orange-600">1,200</div>
+          <div className="stat-desc">↘︎ 90 (14%)</div>
         </div>
 
-        <div class="stat flex flex-col items-center">
-          <div class="stat-title font-medium text-black ">New Registers</div>
-          <div class="stat-value text-orange-600">1,200</div>
-          <div class="stat-desc">↘︎ 90 (14%)</div>
+        <div className="stat flex flex-col items-center">
+          <div className="stat-title font-medium text-black ">New Registers</div>
+          <div className="stat-value text-orange-600">1,200</div>
+          <div className="stat-desc">↘︎ 90 (14%)</div>
         </div>
       </div>
     </section>
