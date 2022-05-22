@@ -1,3 +1,5 @@
+import { faArrowLeft, faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "../../../asset/icon/Logo.png";
@@ -5,6 +7,8 @@ import CustomLink from "../../sheared/CustomLink/CustomLink";
 
 const Navigation = () => {
   const [isHome, setIsHome] = useState(false);
+  const [navOpen, setNavOpen] = useState(false);
+
   const location = useLocation();
   useEffect(() => {
     setIsHome(location.pathname === "/" ? true : false);
@@ -18,15 +22,40 @@ const Navigation = () => {
           : "max-w-screen-2xl w-full block"
       }`}>
       {/* nav container */}
-      <nav className={`${isHome ? "bg-navBgColor text-white" : "bg-slate-300 text-black"} p-4 shadow-lg` }>
+      <nav
+        className={`${
+          isHome ? "bg-navBgColor text-white" : "bg-slate-300 text-black"
+        } px-2 sm:px-10  py-4 shadow-lg`}>
         <div className="max-w-screen-lg w-full mx-auto flex justify-between items-center ">
-          <div>
+          <div className="flex items-center gap-5">
+            <span
+              className="ml-4 md:hidden text-xl font-bold"
+              onClick={() => setNavOpen(!navOpen)}>
+              {navOpen ? (
+                <FontAwesomeIcon icon={faArrowLeft} />
+              ) : (
+                <FontAwesomeIcon icon={faBars} />
+              )}
+            </span>
+
             <img src={logo} alt="" className="h-[50px]" />
           </div>
 
-          <div className="font-medium flex gap-4">
-            <CustomLink to="/">Home</CustomLink>
-            <CustomLink to="/about">About</CustomLink>
+          <div>
+            {/* for mobile width  */}
+            <div
+              className={` ${
+                navOpen ? "left-0" : "left-[-200px]"
+              } w-[200px] h-[300px] bg-blue-900 font-medium absolute pl-5 pr-5 top-[82px] md:hidden gap-4 duration-200 text-xl rounded-[0rem_1rem_1rem_0rem]` }>
+              <CustomLink to="/">Home</CustomLink>
+              <CustomLink to="/about">About</CustomLink>
+            </div>
+
+            {/* fo tablet and desktop width */}
+            <div className="font-medium hidden md:flex gap-4 duration-150">
+              <CustomLink to="/">Home</CustomLink>
+              <CustomLink to="/about">About</CustomLink>
+            </div>
           </div>
 
           <div className=" font-medium">
