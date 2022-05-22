@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
     <div className="card w-96 bg-base-100 shadow-xl ">
       <div
         style={productImgBg}
-        className="w-[384px] h-[216px] flex justify-center bg-cover bg-blend-darken bg-center">
+        className="h-[216px] flex justify-center bg-cover bg-blend-darken bg-center">
         <img src={img} alt="" className="h-[215px] shadow-md m-3 rounded-lg" />
       </div>
 

@@ -33,5 +33,5 @@ export default Hero;
 
 const heroCustomStyle = {
   backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, .40), rgba(0, 0, 0, .80), rgba(0, 0, 0, .70)), url(${bgImage})`,
-  backgroundColor: "#00ef0c",
+  backgroundColor: "#333333",
 };

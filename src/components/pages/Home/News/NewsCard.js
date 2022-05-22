@@ -16,7 +16,7 @@ const NewsCard = () => {
         backgroundImage: `url(${placeholderImg})`,
         backgroundColor: "#222222",
       }}
-      className="rounded-2xl overflow-hidden w-[380px] h-[300px] bg-cover bg-center bg-blend-overlay shadow-md border relative news-body">
+      className="rounded-2xl overflow-hidden w-[300px] md:w-[380px] h-[300px] bg-cover bg-center bg-blend-overlay shadow-md border relative news-body">
       <div className="absolute bottom-5 left-5">
         <h2 className="text-[#eeeaea] text-2xl font-medium news-title">
           News title here
