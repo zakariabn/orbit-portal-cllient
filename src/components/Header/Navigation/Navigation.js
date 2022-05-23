@@ -68,15 +68,15 @@ const Navigation = () => {
                 navOpen ? "left-[-10px]" : "left-[-300px]"
               } w-[200px] h-[300px] font-medium absolute px-5 py-4 top-[82px] md:hidden gap-4 duration-200 text-xl rounded-[0rem_1rem_1rem_0rem] text-black menu bg-base-100 shadow-md`}>
               <CustomLink to="/">Home</CustomLink>
+              <CustomLink to="/products">Products</CustomLink>
               <CustomLink to="/about">About</CustomLink>
-              <CustomLink to="/store">Store</CustomLink>
             </div>
 
             {/* fo tablet and desktop width */}
             <div className="font-medium hidden md:flex gap-4 duration-150">
               <CustomLink to="/">Home</CustomLink>
+              <CustomLink to="/products">Products</CustomLink>
               <CustomLink to="/about">About</CustomLink>
-              <CustomLink to="/store">Store</CustomLink>
             </div>
           </div>
 

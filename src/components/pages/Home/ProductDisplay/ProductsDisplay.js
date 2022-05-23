@@ -18,7 +18,7 @@ const ProductsDisplay = () => {
           );
         })}
       </div>
-      <button className="btn btn-sm" onClick={() => navigate('/shop')}>Show more</button>
+      <button className="btn btn-sm" onClick={() => navigate('/products')}>Show more</button>
     </div>
   );
 };

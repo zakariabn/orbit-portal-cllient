@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
   const {
+    _id,
     name,
     img,
     description,
@@ -14,6 +17,12 @@ const ProductCard = ({ product }) => {
     backgroundImage: `url(${img})`,
     backgroundColor: "#00000099",
   };
+
+  // redirecting order page
+  function handelOrderClick (id) {
+    navigate(`/order/${id}`)
+  }
+
 
   return (
     <div className="card w-96 bg-base-100 shadow-xl ">
@@ -42,7 +51,7 @@ const ProductCard = ({ product }) => {
             : description}
         </p>
         <div className="card-actions justify-center mt-5">
-          <div className="btn btn-sm">Order</div>
+          <div className="btn btn-sm" onClick={() => handelOrderClick(_id)}>Order</div>
         </div>
       </div>
     </div>
