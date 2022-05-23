@@ -1,28 +1,37 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer p-10 bg-neutral text-neutral-content">
-      <div>
-        <span className="footer-title">Services</span>
-        <a className="link link-hover">Branding</a>
-        <a className="link link-hover">Design</a>
-        <a className="link link-hover">Marketing</a>
-        <a className="link link-hover">Advertisement</a>
+    <footer className="flex flex-col items-center p-10 bg-[#161616] text-[#fffff0]">
+      <div className="w-[99vw] footer md:justify-items-center">
+        <div>
+          <span className="footer-title text-xl opacity-100 text-white">Services</span>
+          <Link to="" className="link link-hover text-lg font-medium">Branding</Link>
+          <Link to="" className="link link-hover text-lg font-medium">Design</Link>
+          <Link to="" className="link link-hover text-lg font-medium">Marketing</Link>
+          <Link to="" className="link link-hover text-lg font-medium">Advertisement</Link>
+        </div>
+        <div>
+          <span className="footer-title text-xl opacity-100 text-whites">Company</span>
+          <Link to="" className="link link-hover text-lg font-medium">About us</Link>
+          <Link to="" className="link link-hover text-lg font-medium">Contact</Link>
+          <Link to="" className="link link-hover text-lg font-medium">Jobs</Link>
+          <Link to="" className="link link-hover text-lg font-medium">Press kit</Link>
+        </div>
+        <div>
+          <span className="footer-title text-xl opacity-100 text-whites">Legal</span>
+          <Link to="" className="link link-hover text-lg font-medium">Terms of use</Link>
+          <Link to="" className="link link-hover text-lg font-medium">Privacy policy</Link>
+          <Link to="" className="link link-hover text-lg font-medium">Cookie policy</Link>
+        </div>
       </div>
-      <div>
-        <span className="footer-title">Company</span>
-        <a className="link link-hover">About us</a>
-        <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Jobs</a>
-        <a className="link link-hover">Press kit</a>
-      </div>
-      <div>
-        <span className="footer-title">Legal</span>
-        <a className="link link-hover">Terms of use</a>
-        <a className="link link-hover">Privacy policy</a>
-        <a className="link link-hover">Cookie policy</a>
-      </div>
+      <h3 
+        className="text-white mt-10">
+        <span className="text-orange-300 mr-4">&copy;</span>
+        All copyright reserved to Orbit tools- {new Date().getFullYear()}
+        <span className="text-orange-300 ml-4">&copy;</span>
+      </h3>
     </footer>
   );
 };
