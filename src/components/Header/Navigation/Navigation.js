@@ -8,6 +8,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import userPlaceHolderImg from "../../../asset/images/user-account-img-placeholder.png";
 import { signOut } from "firebase/auth";
+import axiosPrivate from "../../../api/axiosPrivate";
+import { toast } from "react-toastify";
 
 const Navigation = () => {
   const [isHome, setIsHome] = useState(false);
@@ -21,8 +23,13 @@ const Navigation = () => {
   }, [location]);
 
   function handelSignOut() {
-    signOut(auth);
-    setOpenModal(false);
+    axiosPrivate.get("/user/logout").then(res => {
+      if(res.status === 200) {
+        signOut(auth);
+        setOpenModal(false);
+        toast.info('Successfully logout');
+      }
+    });
   }
 
   return (

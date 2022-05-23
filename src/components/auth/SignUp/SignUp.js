@@ -6,11 +6,16 @@ import {
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
+import useSignIn from "../../../hooks/useSignIn";
+import Loading from "../../sheared/Loading/Loading";
 
 const SignUp = () => {
+  let location = useLocation();
+  let navigate = useNavigate();
+
   // react form hooks methods
   const {
     register,
@@ -19,6 +24,7 @@ const SignUp = () => {
     reset,
   } = useForm();
 
+
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
@@ -26,6 +32,10 @@ const SignUp = () => {
 
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
+  
+  const [validUser] = useSignIn(user || googleUser);
+  
+  
 
   async function onSubmit(data) {
     const displayName = data.name;
@@ -61,13 +71,17 @@ const SignUp = () => {
     }
   }, [error, googleError]);
 
-  if (user) {
-    reset();
-    toast.success("Account create successfully");
-    toast.info("Please verify your email");
-    console.log(user);
+
+  if (loading || googleLoading || updating) {
+    return <Loading/>
   }
 
+  let from = location.state?.from?.pathname || "/";
+  if (validUser) {
+    toast.success("Sign up Successful", {toastId: "aSuccess"});
+    navigate(from, {replace: true})
+    reset();
+  }
   return (
     <section className="h-screen">
       <div className="container px-6 py-12 h-full">

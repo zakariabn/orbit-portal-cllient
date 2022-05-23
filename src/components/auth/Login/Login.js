@@ -7,13 +7,15 @@ import {
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
+import useSignIn from "../../../hooks/useSignIn";
 import Loading from "../../sheared/Loading/Loading";
 
 const Login = () => {
-  // react form hooks methods
+  let location = useLocation();
+  let navigate = useNavigate();
   const {
     register,
     formState: { errors },
@@ -27,6 +29,9 @@ const Login = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
 
+  const [validUser] = useSignIn(user || googleUser);
+  
+
   function onSubmit(data) {
     signInWithEmailAndPassword(data.email, data.password);
   }
@@ -35,9 +40,6 @@ const Login = () => {
     signInWithGoogle();
   }
 
-  if (error || googleError) {
-    console.log(error || googleError);
-  }
 
   useEffect(() => {
     switch (error?.code || googleError?.code) {
@@ -55,9 +57,11 @@ const Login = () => {
     return <Loading />;
   }
 
-  if (user || googleUser) {
-    console.log(user);
+  let from = location.state?.from?.pathname || "/";
+  if (validUser) {
     toast.success("Login successful", { toastId: "loginSuccess" });
+    reset();
+    navigate(from, {replace: true})
   }
 
   return (
