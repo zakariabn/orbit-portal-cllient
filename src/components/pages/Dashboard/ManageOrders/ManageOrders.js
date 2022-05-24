@@ -3,11 +3,12 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../../firebase.init";
 import useGetOrder from "../../../../hooks/useGetOrder";
 import Loading from "../../../sheared/Loading/Loading";
-import OrderRow from "./OrderRow";
+import OrderRow from "../MyOrders/OrderRow";
+import ManageOrderRow from "./ManageOrderRow";
 
-const MyOrders = () => {
+const ManageOrders = () => {
   const [user, loading] = useAuthState(auth)
-  const [orders, ordersLoading] = useGetOrder(user?.email);
+  const [orders, ordersLoading] = useGetOrder();
   
   console.log(orders);
   if (loading || ordersLoading) {
@@ -39,9 +40,9 @@ const MyOrders = () => {
                 {
                   orders.length > 0 
                   ? orders?.map((order) => {
-                    return <OrderRow key={order._id} order={order}></OrderRow>;
+                    return <ManageOrderRow key={order._id} order={order}></ManageOrderRow>;
                   })
-                  : <> <th/> <th/> <th rowspan="4" className="text-xl text-center block">No Order found</th></>
+                  : <> <th/> <th/> <th className="text-xl text-center block">No Order found</th></>
                 }
               </tbody>
 
@@ -62,4 +63,4 @@ const MyOrders = () => {
   );
 };
 
-export default MyOrders;
+export default ManageOrders;

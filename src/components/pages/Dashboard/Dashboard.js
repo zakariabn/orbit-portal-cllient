@@ -31,6 +31,15 @@ const Dashboard = () => {
                   Overview
                 </Link>
               </li>
+
+              <li>
+                <Link
+                  to="profile"
+                  className="btn bg-transparent border-white text-white hover:bg-transparent hover:border-gray-500">
+                  My Profile
+                </Link>
+              </li>
+
               <li>
                 <Link
                   to="manage-users"
@@ -38,16 +47,60 @@ const Dashboard = () => {
                   Manage User
                 </Link>
               </li>
+
+              <li>
+                <Link
+                  to="manage-orders"
+                  className="btn bg-transparent border-white text-white hover:bg-transparent hover:border-gray-500">
+                  Manage Orders
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="manage-product"
+                  className="btn bg-transparent border-white text-white hover:bg-transparent hover:border-gray-500">
+                  Manage Product
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="add-product"
+                  className="btn bg-transparent border-white text-white hover:bg-transparent hover:border-gray-500">
+                  Add Product
+                </Link>
+              </li>
             </>
           )}
 
-          <li>
-            <Link
-              to="my-orders"
-              className="btn bg-transparent border-white text-white hover:bg-transparent hover:border-gray-500">
-              Orders
-            </Link>
-          </li>
+          {!isAdmin && (
+            <>
+              <li>
+                <Link
+                  to="profile"
+                  className="btn bg-transparent border-white text-white hover:bg-transparent hover:border-gray-500">
+                  My Profile
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="my-orders"
+                  className="btn bg-transparent border-white text-white hover:bg-transparent hover:border-gray-500">
+                  Orders
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="review"
+                  className="btn bg-transparent border-white text-white hover:bg-transparent hover:border-gray-500">
+                  Give us a review
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </div>

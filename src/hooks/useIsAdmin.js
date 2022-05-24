@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import axiosPrivate from "../api/axiosPrivate";
 import Loading from "../components/sheared/Loading/Loading";
 import auth from "../firebase.init";
+import { useQuery } from "react-query";
 
 const useIsAdmin = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -11,6 +12,7 @@ const useIsAdmin = () => {
 
   useEffect(() => {
     if (user) {
+
       (async () => {
         const { data } = await axiosPrivate.get(
           `/user/admin?email=${user?.email}`
@@ -27,7 +29,7 @@ const useIsAdmin = () => {
     }
   });
 
-  // if (loading) return <Loading></Loading>;
+  if (loading) return <Loading></Loading>;
 
   return [isAdmin, isAdminLoading];
 };

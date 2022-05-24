@@ -7,10 +7,13 @@ import RequireAuth from "./components/auth/RequireAuth/RequireAuth";
 import SignUp from "./components/auth/SignUp/SignUp";
 import Navigation from "./components/Header/Navigation/Navigation";
 import Dashboard from "./components/pages/Dashboard/Dashboard";
+import ManageOrders from "./components/pages/Dashboard/ManageOrders/ManageOrders";
 import ManageUser from "./components/pages/Dashboard/ManageUser/ManageUser";
 import MyOrders from "./components/pages/Dashboard/MyOrders/MyOrders";
 import Overview from "./components/pages/Dashboard/Overview/Overview";
+import Profile from "./components/pages/Dashboard/Profile/Profile";
 import Home from "./components/pages/Home/Home";
+import Review from "./components/pages/Home/Review/Review";
 import Order from "./components/pages/Order/Order";
 import Products from "./components/pages/Products/Products";
 
@@ -37,6 +40,8 @@ function App() {
             </RequireAuth>
           }>
           <Route path="my-orders" element={<MyOrders />}></Route>
+          <Route path="profile" element={<Profile />}></Route>
+          <Route path="review" element={<Review />}></Route>
           <Route
             path="overview"
             element={
@@ -44,14 +49,26 @@ function App() {
                 <Overview />
                 <Overview />
               </RequireAdmin>
-            }></Route>
+            }>
+          </Route>
+
           <Route
             path="manage-users"
             element={
               <RequireAdmin>
                 <ManageUser />
               </RequireAdmin>
-            }></Route>
+            }>
+          </Route>
+
+          <Route
+            path="manage-orders"
+            element={
+              <RequireAdmin>
+                <ManageOrders />
+              </RequireAdmin>
+            }>
+          </Route>
         </Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/sign-up" element={<SignUp></SignUp>}></Route>

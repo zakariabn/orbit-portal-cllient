@@ -31,7 +31,7 @@ const Order = () => {
     <div className=''>
       <div className=''>
         {
-          (product in product._id) && <OrderCard key={product._id} product={product}/>
+          <OrderCard key={product._id} product={product}/>
         } 
       </div>
     </div>

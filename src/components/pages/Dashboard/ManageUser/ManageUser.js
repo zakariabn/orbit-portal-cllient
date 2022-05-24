@@ -7,8 +7,8 @@ const ManageUser = () => {
 
   return (
     <div className="mt-5">
-      <div class="overflow-x-auto w-full">
-        <table class="table w-full">
+      <div className="overflow-x-auto w-full">
+        <table className="table w-full">
           <thead>
             <tr>
               <th>Name</th>
