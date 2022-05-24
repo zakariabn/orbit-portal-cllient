@@ -81,7 +81,7 @@ const UserReview = () => {
                   }
                 })}
                 class="textarea textarea-bordered min-h-[150px]"
-                placeholder="Bio"></textarea>
+                placeholder="Please give us your valuable review"></textarea>
                 <small className="text-red-500">{errors.review && errors.review.message}</small>
               <button class="btn btn-outline btn-sm btn-success self-center ">
                 Post

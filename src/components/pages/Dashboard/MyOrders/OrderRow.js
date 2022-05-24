@@ -1,7 +1,24 @@
+import { async } from "@firebase/util";
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
+import axiosPrivate from "../../../../api/axiosPrivate";
 
 const OrderRow = ({ order }) => {
   const { productName, address, quantity, price, timeDate, img } = order;
+
+  function handelOrderCancel (id) {
+    ( async () => {
+      const {data} = await axiosPrivate.delete(`/order/${id}`);
+
+      console.log(data);
+      if (data.success) {
+        toast.info(`Order ${id} is successfully canceled`);
+        window.history.go(0);
+      }
+    })()
+  }
 
   return (
     <tr>
@@ -26,7 +43,7 @@ const OrderRow = ({ order }) => {
       <td>{parseInt(quantity) * price}</td>
       <td>
         {<button className="btn btn-xs btn-success mr-4">pay</button>}
-        <button className="btn btn-xs btn-error">Cancel</button>
+        <button className="btn btn-xs btn-error" onClick={() => handelOrderCancel(order?._id)}>Cancel</button>
       </td>
     </tr>
   );

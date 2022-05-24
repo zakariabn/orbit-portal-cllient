@@ -6,8 +6,11 @@ import Loading from "../../sheared/Loading/Loading";
 import { format } from "date-fns";
 import axiosPrivate from "../../../api/axiosPrivate";
 import { async } from "@firebase/util";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const OrderCard = ({ product }) => {
+  const navigate = useNavigate();
   const [user, loading, error] = useAuthState(auth);
 
   const { _id, name, img, price, availableQuantity, minimumOrderQuantity } =
@@ -37,9 +40,11 @@ const OrderCard = ({ product }) => {
 
     (async () => {
       const { data } = await axiosPrivate.post(
-        `/order?productId=${_id}&quantity=${inputData.orderQuantity}`,
-        { orderData }
-      );
+        `/order?productId=${_id}&quantity=${inputData.orderQuantity}`,{ orderData });
+      if (data.success) {
+        toast.success('Your order place successfully');
+        navigate('/dashboard/my-orders');
+      }
     })();
   }
 
