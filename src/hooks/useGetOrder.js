@@ -12,7 +12,6 @@ const useGetOrder = (email = '') => {
 
         if (email) {
           const {data} = await axiosPrivate(`/orders?email=${email}`);
-          console.log('user', data);
           if (data.success) {
             setOrders(data.orders)
             setOrderLoading(false);
@@ -20,7 +19,6 @@ const useGetOrder = (email = '') => {
         }
         else {
           const {data} = await axiosPrivate(`/orders`);
-          console.log(data);
           if (data.success) {
             setOrders(data.orders);
             setOrderLoading(false);

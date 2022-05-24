@@ -1,27 +1,39 @@
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import Rating from "react-rating";
 
-const ReviewCard = () => {
+const ReviewCard = ({ reviewData }) => {
+  const { img, name, rating, review } = reviewData;
+
   return (
     <div className="card w-[300px]  bg-white shadow-md border text-primary-content">
       <div className="card-body p-4">
         {/* user info */}
         <div className="avatar placeholder gap-4 items-center mb-2">
           <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
-            <span className="text-xs">AA</span>
+            <img src={img} alt="" />
           </div>
-          <p className="card-title">User name</p>
+          <p className="card-title text-gray-700">{name}</p>
         </div>
 
-        <div className="rating rating-sm">
-          <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
-          <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
-          <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
-          <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
-          <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
+        <div className="">
+          <Rating
+            initialRating={rating}
+            readonly={true}
+            emptySymbol={<FontAwesomeIcon icon={faStar} className=" text-gray-400" />}
+            fullSymbol={
+              <FontAwesomeIcon
+                icon={faStar}
+                className="text-orange-400"
+                fractions={2}
+              />
+            }
+          />
         </div>
 
         {/* Review info */}
-        <p className="text-gray-900">If a dog chews shoes whose shoes does he choose?</p>
+        <p className="text-gray-900">{review}</p>
         <div className="card-actions justify-end"></div>
       </div>
     </div>

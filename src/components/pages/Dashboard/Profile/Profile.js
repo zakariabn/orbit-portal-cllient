@@ -6,6 +6,7 @@ import Loading from "../../../sheared/Loading/Loading";
 
 const Profile = () => {
   const [user, loading] = useAuthState(auth);
+  
 
   const { displayName, photoURL, email, phoneNumber } = user;
 

@@ -12,8 +12,8 @@ import ManageUser from "./components/pages/Dashboard/ManageUser/ManageUser";
 import MyOrders from "./components/pages/Dashboard/MyOrders/MyOrders";
 import Overview from "./components/pages/Dashboard/Overview/Overview";
 import Profile from "./components/pages/Dashboard/Profile/Profile";
+import UserReview from "./components/pages/Dashboard/UserReview/UserReview";
 import Home from "./components/pages/Home/Home";
-import Review from "./components/pages/Home/Review/Review";
 import Order from "./components/pages/Order/Order";
 import Products from "./components/pages/Products/Products";
 
@@ -41,7 +41,7 @@ function App() {
           }>
           <Route path="my-orders" element={<MyOrders />}></Route>
           <Route path="profile" element={<Profile />}></Route>
-          <Route path="review" element={<Review />}></Route>
+          <Route path="review" element={<UserReview />}></Route>
           <Route
             path="overview"
             element={

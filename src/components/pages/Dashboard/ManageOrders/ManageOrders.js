@@ -10,7 +10,6 @@ const ManageOrders = () => {
   const [user, loading] = useAuthState(auth)
   const [orders, ordersLoading] = useGetOrder();
   
-  console.log(orders);
   if (loading || ordersLoading) {
     return <Loading/>
   }

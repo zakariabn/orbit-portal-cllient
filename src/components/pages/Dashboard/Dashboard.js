@@ -4,7 +4,6 @@ import useIsAdmin from "../../../hooks/useIsAdmin";
 
 const Dashboard = () => {
   const [isAdmin] = useIsAdmin();
-  console.log(isAdmin);
 
   return (
     <div className="drawer drawer-mobile drawer-end">
