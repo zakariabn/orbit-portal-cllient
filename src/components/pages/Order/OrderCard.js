@@ -5,17 +5,13 @@ import auth from "../../../firebase.init";
 import Loading from "../../sheared/Loading/Loading";
 import { format } from "date-fns";
 import axiosPrivate from "../../../api/axiosPrivate";
+import { async } from "@firebase/util";
 
 const OrderCard = ({ product }) => {
   const [user, loading, error] = useAuthState(auth);
 
-  const {
-    name,
-    img,
-    price,
-    availableQuantity,
-    minimumOrderQuantity,
-  } = product;
+  const { _id, name, img, price, availableQuantity, minimumOrderQuantity } =
+    product;
 
   const isStockOut =
     parseInt(availableQuantity) < parseInt(minimumOrderQuantity);
@@ -38,8 +34,13 @@ const OrderCard = ({ product }) => {
       address: inputData.address,
       phone: inputData.phone,
     };
-    
-    axiosPrivate('/order', {orderData});
+
+    (async () => {
+      const { data } = await axiosPrivate.post(
+        `/order?productId=${_id}&quantity=${inputData.orderQuantity}`,
+        { orderData }
+      );
+    })();
   }
 
   if (loading) return <Loading />;

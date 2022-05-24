@@ -2,9 +2,14 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
 import Login from "./components/auth/Login/Login";
+import RequireAdmin from "./components/auth/RequireAdmin/RequireAdmin";
 import RequireAuth from "./components/auth/RequireAuth/RequireAuth";
 import SignUp from "./components/auth/SignUp/SignUp";
 import Navigation from "./components/Header/Navigation/Navigation";
+import Dashboard from "./components/pages/Dashboard/Dashboard";
+import ManageUser from "./components/pages/Dashboard/ManageUser/ManageUser";
+import MyOrders from "./components/pages/Dashboard/MyOrders/MyOrders";
+import Overview from "./components/pages/Dashboard/Overview/Overview";
 import Home from "./components/pages/Home/Home";
 import Order from "./components/pages/Order/Order";
 import Products from "./components/pages/Products/Products";
@@ -24,6 +29,30 @@ function App() {
               <Order />
             </RequireAuth>
           }></Route>
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }>
+          <Route path="my-orders" element={<MyOrders />}></Route>
+          <Route
+            path="overview"
+            element={
+              <RequireAdmin>
+                <Overview />
+                <Overview />
+              </RequireAdmin>
+            }></Route>
+          <Route
+            path="manage-users"
+            element={
+              <RequireAdmin>
+                <ManageUser />
+              </RequireAdmin>
+            }></Route>
+        </Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/sign-up" element={<SignUp></SignUp>}></Route>
       </Routes>

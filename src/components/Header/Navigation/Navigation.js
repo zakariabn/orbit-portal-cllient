@@ -23,14 +23,28 @@ const Navigation = () => {
   }, [location]);
 
   function handelSignOut() {
-    axiosPrivate.get("/user/logout").then(res => {
-      if(res.status === 200) {
+    axiosPrivate.get("/user/logout").then((res) => {
+      if (res.status === 200) {
         signOut(auth);
         setOpenModal(false);
-        toast.info('Successfully logout');
+        toast.info("Successfully logout");
       }
     });
   }
+
+  const menuItem = (
+    <>
+      <CustomLink to="/">Home</CustomLink>
+      <CustomLink to="/products">Products</CustomLink>
+      <CustomLink to="/about">About</CustomLink>
+      {
+        user && 
+        <>
+          <CustomLink to='/dashboard/my-orders'>Dashboard</CustomLink>
+        </>
+      }
+    </>
+  );
 
   return (
     <div
@@ -67,20 +81,16 @@ const Navigation = () => {
               className={` ${
                 navOpen ? "left-[-10px]" : "left-[-300px]"
               } w-[200px] h-[300px] font-medium absolute px-5 py-4 top-[82px] md:hidden gap-4 duration-200 text-xl rounded-[0rem_1rem_1rem_0rem] text-black menu bg-base-100 shadow-md`}>
-              <CustomLink to="/">Home</CustomLink>
-              <CustomLink to="/products">Products</CustomLink>
-              <CustomLink to="/about">About</CustomLink>
+              {menuItem}
             </div>
 
             {/* fo tablet and desktop width */}
             <div className="font-medium hidden md:flex gap-4 duration-150">
-              <CustomLink to="/">Home</CustomLink>
-              <CustomLink to="/products">Products</CustomLink>
-              <CustomLink to="/about">About</CustomLink>
+              {menuItem}
             </div>
           </div>
 
-          <div className=" font-medium flex gap-5">
+          <div className=" font-medium flex items-center gap-5">
             {!user ? (
               <>
                 <CustomLink to="/login">Login</CustomLink>
@@ -88,6 +98,9 @@ const Navigation = () => {
               </>
             ) : (
               <>
+                <label htmlFor="dashboard-opener" className="md:hidden">
+                  <p className="hover:cursor-pointer">Dashboard</p>
+                </label>
                 <div
                   className="w-[45px] h-[45px] bg-slate-400 rounded-full overflow-hidden hover:cursor-pointer shadow-md shadow-gray-600"
                   onClick={() => setOpenModal(!openModal)}>
@@ -99,8 +112,7 @@ const Navigation = () => {
 
           {/* user info popup modal */}
           {openModal && (
-            <div className="absolute top-[4rem] right-0 md:right-[-12rem] bg-white min-w-[200px] text-black rounded-lg shadow-md">
-
+            <div className="absolute z-50 top-[4rem] right-0 md:right-[-12rem] bg-white min-w-[200px] text-black rounded-lg shadow-md">
               <div className="w-full flex flex-col items-center px-2 py-4">
                 <div className="flex flex-col items-center mb-5">
                   <img

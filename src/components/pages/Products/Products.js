@@ -5,7 +5,6 @@ import ProductCard from "../Home/ProductDisplay/ProductCard";
 
 const Products = () => {
   const [products] = useGetProduct();
-  console.log(products);
   return (
     <div>
       <div className="max-w-screen-xl mx-auto mb-20">

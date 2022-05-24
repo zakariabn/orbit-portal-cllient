@@ -11,13 +11,15 @@ const Order = () => {
   const [loading, setLoading] = useState(true);
  
   useEffect(() => {
-    ( async () => {
-      const {data} = await axiosPrivate.get(`/product/${id}`);
-      if (data.success) {
-        setLoading(false);
-        setProduct(data.product);
-      }
-    })();
+    if (id.length > 2) {
+      ( async () => {
+        const {data} = await axiosPrivate.get(`/product/${id}`);
+        if (data.success) {
+          setLoading(false);
+          setProduct(data.product);
+        }
+      })();
+    }
 
   }, [id])
 
@@ -28,7 +30,9 @@ const Order = () => {
   return (
     <div className=''>
       <div className=''>
-        <OrderCard key={product._id} product={product}/>
+        {
+          (product in product._id) && <OrderCard key={product._id} product={product}/>
+        } 
       </div>
     </div>
   );
