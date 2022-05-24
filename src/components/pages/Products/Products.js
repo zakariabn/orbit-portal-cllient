@@ -1,10 +1,16 @@
 import React from "react";
 import useGetProduct from "../../../hooks/useGetProduct";
 import Footer from "../../sheared/Footer/Footer";
+import Loading from "../../sheared/Loading/Loading";
 import ProductCard from "../Home/ProductDisplay/ProductCard";
 
 const Products = () => {
-  const [products] = useGetProduct();
+  const [products, productsLoading] = useGetProduct();
+
+  if (productsLoading) {
+    return <Loading/>
+  }
+  console.log(products);
   return (
     <div>
       <div className="max-w-screen-xl mx-auto mb-20">

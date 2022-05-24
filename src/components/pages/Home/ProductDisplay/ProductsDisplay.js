@@ -3,11 +3,16 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosPrivate from "../../../../api/axiosPrivate";
 import useGetProduct from "../../../../hooks/useGetProduct";
+import Loading from "../../../sheared/Loading/Loading";
 import ProductCard from "./ProductCard";
 
 const ProductsDisplay = () => {
   const navigate = useNavigate();
-  const [products] = useGetProduct(3);
+  const [products, productsLoading] = useGetProduct(3);
+
+  if (productsLoading) {
+    return <Loading/>
+  }
 
   return (
     <div className="max-w-screen-xl w-full flex flex-col items-center gap-10 mt-[-100px] mb-20">

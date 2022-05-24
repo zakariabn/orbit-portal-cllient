@@ -10,6 +10,7 @@ import userPlaceHolderImg from "../../../asset/images/user-account-img-placehold
 import { signOut } from "firebase/auth";
 import axiosPrivate from "../../../api/axiosPrivate";
 import { toast } from "react-toastify";
+import Loading from "../../sheared/Loading/Loading";
 
 const Navigation = () => {
   const [isHome, setIsHome] = useState(false);
@@ -30,6 +31,10 @@ const Navigation = () => {
         toast.info("Successfully logout");
       }
     });
+  }
+
+  if (loading) {
+    return <Loading/>
   }
 
   const menuItem = (
