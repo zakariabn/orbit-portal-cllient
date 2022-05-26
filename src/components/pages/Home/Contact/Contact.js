@@ -13,16 +13,14 @@ const Contact = () => {
         <div className="flex-1 flex-col justify-center px-4">
           <h1 className="text-5xl font-bold">Contact Us</h1>
           <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            Our customer is out most priority. If you need any help our customer service provider are hear 24/7.
           </p>
 
           <div className="flex gap-4 mb-4">
             <FontAwesomeIcon icon={faLocation} className="text-[20px] mt-2" />
             <span>
               <h3>Address</h3>
-              <address>350 Flatbush ave New York, NY 10018 USA.</address>
+              <address>Rasulbag, Mohkhali, Dhaka.</address>
             </span>
           </div>
 
@@ -30,7 +28,7 @@ const Contact = () => {
             <FontAwesomeIcon icon={faPhone} className="text-[20px] mt-2" />
             <span>
               <h3>Phone</h3>
-              <p>123-456-789, 234-432-456</p>
+              <p>01717-070253, 095888813</p>
             </span>
           </div>
         </div>

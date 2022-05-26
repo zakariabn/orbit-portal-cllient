@@ -8,27 +8,20 @@ const BusinessSummary = () => {
       </div>
       <div className="flex flex-col md:flex-row justify-center items-center">
         <div className="stat flex flex-col items-center">
-          <div className="stat-title font-medium text-black ">Downloads</div>
-          <div className="stat-value text-orange-600">31K</div>
-          <div className="stat-desc">Jan 1st - Feb 1st</div>
+          <div className="stat-title font-medium text-black ">Happy customer</div>
+          <div className="stat-value text-orange-600">3K</div>
         </div>
 
         <div className="stat flex flex-col items-center">
-          <div className="stat-title font-medium text-black ">New Users</div>
+          <div className="stat-title font-medium text-black ">Total sell</div>
           <div className="stat-value text-orange-600">4,200</div>
-          <div className="stat-desc">↗︎ 400 (22%)</div>
+          <div className="stat-desc"></div>
         </div>
 
         <div className="stat flex flex-col items-center">
-          <div className="stat-title font-medium text-black ">New Registers</div>
-          <div className="stat-value text-orange-600">1,200</div>
-          <div className="stat-desc">↘︎ 90 (14%)</div>
-        </div>
-
-        <div className="stat flex flex-col items-center">
-          <div className="stat-title font-medium text-black ">New Registers</div>
-          <div className="stat-value text-orange-600">1,200</div>
-          <div className="stat-desc">↘︎ 90 (14%)</div>
+          <div className="stat-title font-medium text-black ">We Are In</div>
+          <div className="stat-value text-orange-600">12</div>
+          <div className="stat-desc">Country</div>
         </div>
       </div>
     </section>

@@ -17,6 +17,7 @@ import Profile from "./components/pages/Dashboard/Profile/Profile";
 import UserReview from "./components/pages/Dashboard/UserReview/UserReview";
 import Home from "./components/pages/Home/Home";
 import NewsBlog from "./components/pages/NewsBlog/NewsBlog";
+import ReadBlogNews from "./components/pages/NewsBlog/ReadBlogNews";
 import Order from "./components/pages/Order/Order";
 import Portfolio from "./components/pages/Portfolio/Portfolio";
 import Products from "./components/pages/Products/Products";
@@ -31,6 +32,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/products" element={<Products />}></Route>
         <Route path="/news-blog" element={<NewsBlog/>}></Route>
+        <Route path="/news-blog/read/:id" element={<ReadBlogNews/>}></Route>
         <Route path="/portfolio" element={<Portfolio/>}></Route>
         <Route
           path="/order/:id"

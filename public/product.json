@@ -46,5 +46,14 @@
     "price": 3,
     "availableQuantity": 5980,
     "minimumOrderQuantity": 1100
+  },
+
+  {
+    "title": "Lorem ipsum dolor sit amet",
+    "img": "https://cdn-media-1.freecodecamp.org/images/1*jnqXL4Q-iW0qxodFDTxyFQ.jpeg",
+    "blog_text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis inventore consequuntur aliquid at esse aliquam error aut magni non suscipit!",
+    "blogger_name" : "zakaria",
+    "blogger_img" : "https://i.ibb.co/YDFPsvV/profile-img-500x500.jpg",
+    "post_date" : ["May 24, 2022", "5:09:55 AM"]
   }
 ]
