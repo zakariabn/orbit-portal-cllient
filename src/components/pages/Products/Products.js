@@ -7,10 +7,11 @@ import ProductCard from "../Home/ProductDisplay/ProductCard";
 const Products = () => {
   const [products, productsLoading] = useGetProduct();
 
+
   if (productsLoading) {
     return <Loading/>
   }
-  console.log(products);
+  console.log("products", products);
   return (
     <div>
       <div className="max-w-screen-xl mx-auto mb-20">
@@ -20,7 +21,7 @@ const Products = () => {
         <div className="flex flex-wrap justify-center gap-10 bg-gray-200 px-4 py-10 rounded-lg">
           {products?.map((product) => {
             return (
-              <ProductCard key={product.name} product={product}></ProductCard>
+              <ProductCard key={product._id} product={product}></ProductCard>
             );
           })}
         </div>
