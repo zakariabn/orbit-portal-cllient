@@ -1,9 +1,12 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import useIsAdmin from "../../../hooks/useIsAdmin";
+import Loading from "../../sheared/Loading/Loading";
 
 const Dashboard = () => {
-  const [isAdmin] = useIsAdmin();
+  const [isAdmin, isAdminLoading] = useIsAdmin();
+
+  if (isAdminLoading) return <Loading/>
 
   return (
     <div className="drawer drawer-mobile drawer-end">
@@ -57,7 +60,7 @@ const Dashboard = () => {
 
               <li>
                 <Link
-                  to="manage-product"
+                  to="manage-products"
                   className="btn bg-transparent border-white text-white hover:bg-transparent hover:border-gray-500">
                   Manage Product
                 </Link>

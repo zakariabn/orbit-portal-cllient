@@ -8,16 +8,20 @@ import axiosPrivate from "../../../../api/axiosPrivate";
 const OrderRow = ({ order }) => {
   const { productName, address, quantity, price, timeDate, img } = order;
 
-  function handelOrderCancel (id) {
-    ( async () => {
-      const {data} = await axiosPrivate.delete(`/order/${id}`);
+  function handelOrderCancel(id) {
+    const isAgree = window.confirm("Are you sure? You wan't to cancel");
 
-      console.log(data);
-      if (data.success) {
-        toast.info(`Order ${id} is successfully canceled`);
-        window.history.go(0);
-      }
-    })()
+    if (isAgree) {
+      (async () => {
+        const { data } = await axiosPrivate.delete(`/order/${id}`);
+
+        console.log(data);
+        if (data.success) {
+          toast.info(`Order ${id} is successfully canceled`);
+          window.history.go(0);
+        }
+      })();
+    }
   }
 
   return (
@@ -43,7 +47,11 @@ const OrderRow = ({ order }) => {
       <td>{parseInt(quantity) * price}</td>
       <td>
         {<button className="btn btn-xs btn-success mr-4">pay</button>}
-        <button className="btn btn-xs btn-error" onClick={() => handelOrderCancel(order?._id)}>Cancel</button>
+        <button
+          className="btn btn-xs btn-error"
+          onClick={() => handelOrderCancel(order?._id)}>
+          Cancel
+        </button>
       </td>
     </tr>
   );

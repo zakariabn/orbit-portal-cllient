@@ -1,19 +1,11 @@
-import React from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../../../firebase.init";
-import useGetOrder from "../../../../hooks/useGetOrder";
-import Loading from "../../../sheared/Loading/Loading";
-import OrderRow from "../MyOrders/OrderRow";
-import ManageOrderRow from "./ManageOrderRow";
+import React from 'react';
+import { useState } from 'react';
+import useGetProduct from '../../../../hooks/useGetProduct';
+import ConfirmModal from '../../../sheared/ConfirmModal/ConfirmModal';
+import ManageProductRow from './ManageProductRow';
 
-const ManageOrders = () => {
-  const [user, loading] = useAuthState(auth)
-  const [orders, ordersLoading] = useGetOrder();
-  
-  if (loading || ordersLoading) {
-    return <Loading/>
-  }
-
+const ManageProduct = () => {
+  const [products, productsLoading] = useGetProduct();
 
   return (
     <div className="max-w-screen w-full">
@@ -29,20 +21,22 @@ const ManageOrders = () => {
                 <tr>
                   <th>Image</th>
                   <th>Product name</th>
-                  <th>Order Quantity</th>
+                  <th>Stock available</th>
                   <th>Price <sup>(per pice)</sup></th>
-                  <th>Subtotal</th>
+                  <th>Minimum order</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 {
-                  orders.length > 0 
-                  ? orders?.map((order) => {
-                    return <ManageOrderRow key={order._id} order={order}></ManageOrderRow>;
+                  products?.map(product => {
+                    return <ManageProductRow
+                      key={product._id}
+                      product={product}
+                    ></ManageProductRow>
                   })
-                  : <> <th/> <th/> <th className="text-xl text-center block">No Order found</th></>
                 }
+                  
               </tbody>
 
               <tfoot>
@@ -62,4 +56,4 @@ const ManageOrders = () => {
   );
 };
 
-export default ManageOrders;
+export default ManageProduct;

@@ -26,8 +26,8 @@ const ManageOrderRow = ({ order }) => {
       </td>
       <td>{parseInt(quantity) * price}</td>
       <td>
-        {<button className="btn btn-xs btn-success mr-4">pay</button>}
-        <button className="btn btn-xs btn-error">Cancel</button>
+        {<button className="btn btn-xs btn-error mr-4">unpaid</button>}
+        <button className="btn btn-xs btn-info">Shift</button>
       </td>
     </tr>
   );

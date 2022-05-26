@@ -1,7 +1,27 @@
 import React from "react";
+import { toast } from "react-toastify";
+import axiosPrivate from "../../../../api/axiosPrivate";
 
 const UserCard = ({ user }) => {
   const { name, email, img, role } = user;
+
+  function handelDeleteUser(email) {
+    console.log(email);
+  }
+
+  function handelMakeAdmin(email) {
+
+    ( async() => {
+      const {data} = await axiosPrivate.put('/admin-user/role', {email: email, role: "admin"})
+      console.log(data);
+      if (data.success) {
+        toast.success('Role updated');
+        window.history.go(0);
+      }
+    })()
+
+    console.log(email);
+  }
 
   return (
     <tr>
@@ -21,7 +41,9 @@ const UserCard = ({ user }) => {
       <td>
         {email}
         <br />
-        <span className="badge badge-info pb-0.5 text-black badge-sm">{role}</span>
+        <span className="badge badge-info pb-0.5 text-black badge-sm">
+          {role}
+        </span>
       </td>
       <td>
         <select name="" id="">
@@ -30,8 +52,19 @@ const UserCard = ({ user }) => {
         </select>
       </td>
       <td>
-        { role !== 'admin' && <button className="btn btn-xs btn-success mr-4">Make Admin</button>}
-        <button className="btn btn-xs btn-error">Delete</button>
+        {role !== "admin" && (
+          <button
+            onClick={() => handelMakeAdmin(email)}
+            className="btn btn-xs btn-success mr-4">
+            Make Admin
+          </button>
+        )}
+        <button
+          disabled
+          onClick={() => handelDeleteUser(email)}
+          className="btn btn-xs btn-error">
+          Delete
+        </button>
       </td>
     </tr>
   );

@@ -6,14 +6,12 @@ import Loading from "../../../sheared/Loading/Loading";
 import OrderRow from "./OrderRow";
 
 const MyOrders = () => {
-  const [user, loading] = useAuthState(auth)
+  const [user, loading] = useAuthState(auth);
   const [orders, ordersLoading] = useGetOrder(user?.email);
-  
-  console.log(orders);
-  if (loading || ordersLoading) {
-    return <Loading/>
-  }
 
+  if (loading || ordersLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="max-w-screen w-full">
@@ -21,43 +19,48 @@ const MyOrders = () => {
         <span className="">My Orders</span>
       </h1>
 
-      
-        <div className="mt-5 max-w-screen-xl mx-auto">
-          <div className="overflow-x-auto w-full">
-            <table className="table w-full">
-              <thead>
-                <tr>
-                  <th>Image</th>
-                  <th>Product name</th>
-                  <th>Order Quantity</th>
-                  <th>Price <sup>(per pice)</sup></th>
-                  <th>Subtotal</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {
-                  orders.length > 0 
-                  ? orders?.map((order) => {
-                    return <OrderRow key={order._id} order={order}></OrderRow>;
-                  })
-                  : <> <th/> <th/> <th rowspan="4" className="text-xl text-center block">No Order found</th></>
-                }
-              </tbody>
+      <div className="mt-5 max-w-screen-xl mx-auto">
+        <div className="overflow-x-auto w-full">
+          <table className="table w-full">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Product name</th>
+                <th>Order Quantity</th>
+                <th>
+                  Price <sup>(per pice)</sup>
+                </th>
+                <th>Subtotal</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders.length > 0 ? (
+                orders?.map((order) => {
+                  return <OrderRow key={order._id} order={order}></OrderRow>;
+                })
+              ) : (
+                <>
+                  <tr className="text-xl text-center block">
+                    <td>No Order found</td>
+                  </tr>
+                </>
+              )}
+            </tbody>
 
-              <tfoot>
-                <tr>
-                  <th>...</th>
-                  <th>...</th>
-                  <th>...</th>
-                  <th>...</th>
-                  <th>...</th>
-                  <th>...</th>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
+            <tfoot>
+              <tr>
+                <th>...</th>
+                <th>...</th>
+                <th>...</th>
+                <th>...</th>
+                <th>...</th>
+                <th>...</th>
+              </tr>
+            </tfoot>
+          </table>
         </div>
+      </div>
     </div>
   );
 };

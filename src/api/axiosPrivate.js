@@ -12,8 +12,8 @@ const axiosPrivate = axios.create({
 });
 
 
-/* 
-  // Add a request interceptor
+
+/*   // Add a request interceptor
   axiosPrivate.interceptors.request.use(function (config) {
     // Do something before request is sent
 
@@ -26,9 +26,9 @@ const axiosPrivate = axios.create({
     // Do something with request error
     return Promise.reject(error);
   }); 
-*/
 
-/*
+
+
   // Add a response interceptor
   axiosPrivate.interceptors.response.use(function (response) {
     // Any status code that lie within the range of 2xx cause this function to trigger
@@ -38,7 +38,7 @@ const axiosPrivate = axios.create({
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
     return Promise.reject(error);
-  }); 
-*/
+  });  */
+
 
 export default axiosPrivate;

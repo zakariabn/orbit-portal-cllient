@@ -6,8 +6,10 @@ import RequireAdmin from "./components/auth/RequireAdmin/RequireAdmin";
 import RequireAuth from "./components/auth/RequireAuth/RequireAuth";
 import SignUp from "./components/auth/SignUp/SignUp";
 import Navigation from "./components/Header/Navigation/Navigation";
+import AddProduct from "./components/pages/Dashboard/AddProduct/AddProduct";
 import Dashboard from "./components/pages/Dashboard/Dashboard";
 import ManageOrders from "./components/pages/Dashboard/ManageOrders/ManageOrders";
+import ManageProduct from "./components/pages/Dashboard/ManageProduct/ManageProduct";
 import ManageUser from "./components/pages/Dashboard/ManageUser/ManageUser";
 import MyOrders from "./components/pages/Dashboard/MyOrders/MyOrders";
 import Overview from "./components/pages/Dashboard/Overview/Overview";
@@ -47,7 +49,6 @@ function App() {
             element={
               <RequireAdmin>
                 <Overview />
-                <Overview />
               </RequireAdmin>
             }>
           </Route>
@@ -69,6 +70,25 @@ function App() {
               </RequireAdmin>
             }>
           </Route>
+
+          <Route
+            path="manage-products"
+            element={
+              <RequireAdmin>
+                <ManageProduct />
+              </RequireAdmin>
+            }>
+          </Route>
+
+          <Route
+            path="add-product"
+            element={
+              <RequireAdmin>
+                <AddProduct />
+              </RequireAdmin>
+            }>
+          </Route>
+
         </Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/sign-up" element={<SignUp></SignUp>}></Route>

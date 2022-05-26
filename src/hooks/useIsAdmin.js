@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import axiosPrivate from "../api/axiosPrivate";
 import Loading from "../components/sheared/Loading/Loading";
+
 import auth from "../firebase.init";
-import { useQuery } from "react-query";
+
 
 const useIsAdmin = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -11,12 +12,9 @@ const useIsAdmin = () => {
   const [isAdminLoading, setIsAdminLoading] = useState(true);
 
   useEffect(() => {
-    if (user) {
 
       (async () => {
-        const { data } = await axiosPrivate.get(
-          `/user/admin?email=${user?.email}`
-        );
+        const { data } = await axiosPrivate.get(`/admin-user?email=${user?.email}`);
         if (data.admin) {
           setIsAdmin(true);
           setIsAdminLoading(false);
@@ -26,8 +24,8 @@ const useIsAdmin = () => {
           setIsAdminLoading(false);
         }
       })();
-    }
-  });
+    
+  }, [user]);
 
   if (loading) return <Loading></Loading>;
 
