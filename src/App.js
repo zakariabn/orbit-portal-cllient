@@ -16,8 +16,11 @@ import Overview from "./components/pages/Dashboard/Overview/Overview";
 import Profile from "./components/pages/Dashboard/Profile/Profile";
 import UserReview from "./components/pages/Dashboard/UserReview/UserReview";
 import Home from "./components/pages/Home/Home";
+import NewsBlog from "./components/pages/NewsBlog/NewsBlog";
 import Order from "./components/pages/Order/Order";
+import Portfolio from "./components/pages/Portfolio/Portfolio";
 import Products from "./components/pages/Products/Products";
+import PageNotFound from "./components/sheared/PageNotFound/PageNotFound";
 
 function App() {
   return (
@@ -27,6 +30,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/products" element={<Products />}></Route>
+        <Route path="/news-blog" element={<NewsBlog/>}></Route>
+        <Route path="/portfolio" element={<Portfolio/>}></Route>
         <Route
           path="/order/:id"
           element={
@@ -92,6 +97,8 @@ function App() {
         </Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/sign-up" element={<SignUp></SignUp>}></Route>
+
+        <Route path="*" element={<PageNotFound/>}></Route>
       </Routes>
 
       <ToastContainer />

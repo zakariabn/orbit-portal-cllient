@@ -41,7 +41,8 @@ const Navigation = () => {
     <>
       <CustomLink to="/">Home</CustomLink>
       <CustomLink to="/products">Products</CustomLink>
-      <CustomLink to="/about">About</CustomLink>
+      <CustomLink to="/news-blog">News-Blog</CustomLink>
+      <CustomLink to="/portfolio">Portfolio</CustomLink>
       {
         user && 
         <>
