@@ -4,7 +4,7 @@ const ProfileView = ({ user, dbUser, setIsProfileEdit }) => {
   // const { name, img, email } = user;
   const {name, img, email, phone, address, socialLink } = dbUser;
 
-  console.log(dbUser);
+
 
   return (
     <div className="my-5">

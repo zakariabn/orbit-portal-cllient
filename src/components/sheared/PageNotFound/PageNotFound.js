@@ -5,7 +5,6 @@ import bgImg from '../../../asset/images/hero-banner/hero_banner-2.jpg'
 const PageNotFound = () => {
  
   const location = useLocation();
-  console.log(location);
 
   function handelGoBack () {
     window.history.go(-1);

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Footer = ({position}) => {
-  console.log(position);
+
   return (
     <footer className={`${position && position} flex flex-col w-[99.1vw] bottom-0 p-6 bg-[#161616] text-[#fffff0]`}>
       <div className="footer md:justify-items-center">

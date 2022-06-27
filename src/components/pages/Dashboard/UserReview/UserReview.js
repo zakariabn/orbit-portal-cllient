@@ -31,11 +31,11 @@ const UserReview = () => {
       rating: rating,
       review: inputData.review
     };
-    console.log(reviewData);
+
 
     (async () => {
       const { data } = await axiosPrivate.post(`/add/review`, {reviewData});
-      console.log(data);
+
     })();
   }
 

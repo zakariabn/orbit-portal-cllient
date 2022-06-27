@@ -14,7 +14,7 @@ const AddProduct = () => {
   } = useForm();
 
   function onSubmit(inputData) {
-    console.log(inputData);
+    
 
     const productInfo = {
       name: inputData.name,
@@ -24,14 +24,14 @@ const AddProduct = () => {
       minimumOrderQuantity: inputData.minQuantity,
       description: inputData.description,
     };
-    console.log(productInfo);
+
 
     const formData = new FormData();
     const image = inputData.image[0];
-    console.log(image);
+
 
     formData.append("image", image);
-    console.log(formData);
+    
    
 
     // form data appending not working thats why i did't implement direct upload;

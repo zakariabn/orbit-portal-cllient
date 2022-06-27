@@ -7,7 +7,7 @@ const ReadBlogNews = () => {
   const [blog, setBlog] = useState({});
   const { id } = useParams();
 
-  console.log(blog);
+
   useEffect(() => {
     (async () => {
       const { data } = await axiosPrivate.get(`/news-blog/${id}`);

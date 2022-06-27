@@ -48,14 +48,14 @@ const ProfileEdit = ({ dbUser, setIsProfileEdit }) => {
   // i need to do if user not login with social login he can update his profile picture and name
 
   function handelSaveUserInfo() {
-    console.log("func-log1", userInfo);
+    
 
     (async () => {
       const { data } = await axiosPrivate.put(
         `/update-user?email=${email}`,
         userInfo
       );
-      console.log(data);
+      
       if (data.success) {
         toast.success("Profile update successfully");
       }

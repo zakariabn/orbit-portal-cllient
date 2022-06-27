@@ -2,11 +2,12 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import useIsAdmin from "../../../hooks/useIsAdmin";
 import Loading from "../../sheared/Loading/Loading";
+import NotFound from "../../sheared/NotFound/NotFound";
 
 const Dashboard = () => {
-  const [isAdmin, isAdminLoading] = useIsAdmin();
+  const [isAdmin, isAdminLoading, isBadConnection] = useIsAdmin();
 
-  if (isAdminLoading) return <Loading/>
+  if (isAdminLoading) return <Loading />;
 
   return (
     <div className="drawer drawer-mobile drawer-end">
@@ -16,12 +17,16 @@ const Dashboard = () => {
         <h2 className="text-center text-4xl text-white font-bold py-2 pb-4 bg-gray-800 ">
           Dashboard
         </h2>
-        <div className="flex flex-col items-center">
-          <Outlet />
-        </div>
+        {isBadConnection ? (
+          <NotFound title="Data" />
+        ) : (
+          <div className="flex flex-col items-center">
+            <Outlet />
+          </div>
+        )}
       </div>
 
-      <div className="drawer-side shadow-xl">
+      <div className={`${isBadConnection ? "hidden" : "drawer-side shadow-xl"}`}>
         <label htmlFor="dashboard-opener" className="drawer-overlay"></label>
         <ul className="menu gap-2 p-4 overflow-y-auto w-80 bg-gray-800 text-black">
           {isAdmin && (

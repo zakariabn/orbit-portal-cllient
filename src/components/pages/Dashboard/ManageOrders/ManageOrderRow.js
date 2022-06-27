@@ -3,7 +3,7 @@ import React from "react";
 const ManageOrderRow = ({ order }) => {
   const { productName, address, quantity, price, timeDate, img } = order;
 
-  console.log(parseInt(quantity) * price);
+
   return (
     <tr>
       <td>

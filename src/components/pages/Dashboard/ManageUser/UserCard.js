@@ -6,21 +6,20 @@ const UserCard = ({ user }) => {
   const { name, email, img, role } = user;
 
   function handelDeleteUser(email) {
-    console.log(email);
+
   }
 
   function handelMakeAdmin(email) {
 
     ( async() => {
       const {data} = await axiosPrivate.put('/admin-user/role', {email: email, role: "admin"})
-      console.log(data);
+
       if (data.success) {
         toast.success('Role updated');
         window.history.go(0);
       }
     })()
 
-    console.log(email);
   }
 
   return (

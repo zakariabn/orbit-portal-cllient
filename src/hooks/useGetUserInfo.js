@@ -6,8 +6,13 @@ const useGetUserInfo = () => {
 
   useEffect(() => {
     (async () => {
-      const { data } = await axiosPrivate.get("/users");
-      setUsersInfo(data.users);
+      try {
+        const { data } = await axiosPrivate.get("/users");
+        setUsersInfo(data.users);
+      } catch (error) {
+        console.log(error);
+        setUsersInfo([]);
+      }
     })();
   }, []);
 

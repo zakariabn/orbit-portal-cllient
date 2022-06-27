@@ -2,6 +2,8 @@ import React from "react";
 import useGetProduct from "../../../hooks/useGetProduct";
 import Footer from "../../sheared/Footer/Footer";
 import Loading from "../../sheared/Loading/Loading";
+import NotFound from "../../sheared/ProductsNotFound/NotFound";
+
 import ProductCard from "../Home/ProductDisplay/ProductCard";
 
 const Products = () => {
@@ -11,9 +13,13 @@ const Products = () => {
   if (productsLoading) {
     return <Loading/>
   }
-  console.log("products", products);
+
   return (
-    <div>
+    <>
+      {products.length <= 0 ? (
+        <NotFound title="Products"/>
+      ) : (
+        <div>
       <div className="max-w-screen-xl mx-auto mb-20">
         <h2 className="text-center text-5xl font-bold my-10">
           Product Collection
@@ -26,8 +32,10 @@ const Products = () => {
           })}
         </div>
       </div>
-      <Footer position={!products ? "fixed bottom-0 left-0" : ""}/>
+      <Footer position={products.length <= 0 ? "fixed bottom-0 left-0" : ""}/>
     </div>
+      )}
+    </>
   );
 };
 

@@ -10,7 +10,7 @@ const BlogsCard = ({newsBlog}) => {
 
   function handelReadPost (id) {
     navigate(`/news-blog/read/${id}`)
-    console.log(id);
+
   }
 
   return (

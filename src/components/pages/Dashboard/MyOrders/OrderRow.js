@@ -15,7 +15,6 @@ const OrderRow = ({ order }) => {
       (async () => {
         const { data } = await axiosPrivate.delete(`/order/${id}`);
 
-        console.log(data);
         if (data.success) {
           toast.info(`Order ${id} is successfully canceled`);
           window.history.go(0);

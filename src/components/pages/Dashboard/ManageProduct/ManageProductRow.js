@@ -14,7 +14,7 @@ const ManageProductRow = ({ product }) => {
 
       ( async () => {
         const {data} = await axiosPrivate.delete(`/product/delete?id=${id}`)
-        console.log(data);
+
 
         if (data?.success) {
           toast.success('Product delete successfully');
@@ -23,7 +23,7 @@ const ManageProductRow = ({ product }) => {
     }
   }
 
-  console.log(parseInt(availableQuantity) * price);
+
   return (
     <tr>
       <td>

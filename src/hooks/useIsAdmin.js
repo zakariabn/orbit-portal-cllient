@@ -5,22 +5,27 @@ import Loading from "../components/sheared/Loading/Loading";
 
 import auth from "../firebase.init";
 
-
 const useIsAdmin = () => {
+
   const [user, loading, error] = useAuthState(auth);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isAdminLoading, setIsAdminLoading] = useState(true);
+  const [isBadConnection, setIsBadConnection] = useState(false);
 
   useEffect(() => {
 
       (async () => {
-        const { data } = await axiosPrivate.get(`/admin-user?email=${user?.email}`);
-        if (data.admin) {
-          setIsAdmin(true);
-          setIsAdminLoading(false);
-        }
-        else {
-          setIsAdmin(false)
+        try {
+          const { data } = await axiosPrivate.get(`/admin-user?email=${user?.email}`);
+          
+          if (data.admin) {
+            setIsAdmin(true);
+            setIsAdminLoading(false);
+          }
+        } 
+        catch (error) {
+          console.log(error);
+          setIsBadConnection(true);
           setIsAdminLoading(false);
         }
       })();
@@ -29,7 +34,7 @@ const useIsAdmin = () => {
 
   if (loading) return <Loading></Loading>;
 
-  return [isAdmin, isAdminLoading];
+  return [isAdmin, isAdminLoading, isBadConnection];
 };
 
 export default useIsAdmin;

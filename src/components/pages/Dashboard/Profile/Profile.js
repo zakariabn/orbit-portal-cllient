@@ -10,8 +10,6 @@ const Profile = () => {
 
   const [dbUser, refetch] = useUser();
 
-  console.log(dbUser);
-
   return (
     <div>
       {isProfileEdit ? (
