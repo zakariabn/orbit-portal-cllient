@@ -17,14 +17,19 @@ const Hero = () => {
         </h1>
 
         <div className="flex gap-5">
-          <button className="btn btn-sm bg-transparent text-white border-white rounded-full hover:bg-transparent">
-            Contact Us
-            <FontAwesomeIcon icon={faArrowRight} className="ml-4" />
-          </button>
-          <button className="btn btn-sm bg-transparent text-white border-white rounded-full hover:bg-transparent">
-            order now
-            <FontAwesomeIcon icon={faArrowRight} className="ml-4" />
-          </button>
+          <a href="mailto:orbit.tools@contact.com">
+            <button className="btn btn-sm bg-transparent text-white border-white rounded-full hover:bg-transparent">
+              Contact Us
+              <FontAwesomeIcon icon={faArrowRight} className="ml-4" />
+            </button>
+          </a>
+
+          <Link to="/products">
+            <button className="btn btn-sm bg-transparent text-white border-white rounded-full hover:bg-transparent">
+              Order Now
+              <FontAwesomeIcon icon={faArrowRight} className="ml-4" />
+            </button>
+          </Link>
         </div>
       </div>
     </div>

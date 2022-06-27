@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import axiosPrivate from "../../../../api/axiosPrivate";
 
-const ProfileEdit = ({ user, dbUser, setIsProfileEdit }) => {
+const ProfileEdit = ({ dbUser, setIsProfileEdit }) => {
   // const { name, img, email, phoneNumber } = user;
 
   const { name, img, email, phone, address, socialLink } = dbUser;
@@ -68,14 +68,11 @@ const ProfileEdit = ({ user, dbUser, setIsProfileEdit }) => {
     <div className="my-5 flex flex-col items-center">
       <div>
         {/*  */}
-        <div className="flex gap-5 mt-10 mb-3">
+        <div className="flex gap-5 mt-10 mb-3 p-3 bg-slate-50">
           <div className="w-[100px]">
             <img src={img} alt="" className="w-full" />
           </div>
 
-          <h2 className="self-end text-2xl font-bold text-orange-500">
-            {name}{" "}
-          </h2>
           {/* <div className="self-end">
             <input type="file" />
           </div> */}

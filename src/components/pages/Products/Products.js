@@ -26,7 +26,7 @@ const Products = () => {
           })}
         </div>
       </div>
-      <Footer />
+      <Footer position={!products ? "fixed bottom-0 left-0" : ""}/>
     </div>
   );
 };

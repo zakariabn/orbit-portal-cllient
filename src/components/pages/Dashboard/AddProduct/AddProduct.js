@@ -23,40 +23,43 @@ const AddProduct = () => {
       availableQuantity: inputData.stock,
       minimumOrderQuantity: inputData.minQuantity,
       description: inputData.description,
-    }
+    };
     console.log(productInfo);
-    
-      /* 
-      const formData = new FormData();
-      const image = inputData.image[0];
-      formData.append("image", image); 
+
+    const formData = new FormData();
+    const image = inputData.image[0];
+    console.log(image);
+
+    formData.append("image", image);
+    console.log(formData);
+   
+
+    // form data appending not working thats why i did't implement direct upload;
+
+    /*
+      ( async () => {
+        axios.post(`https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_API_KEY}`)
+          .then (data => {
+            console.log(data);
+          })
+      })() 
     */
 
-      // form data appending not working thats why i did't implement direct upload;
+    // sending product data
+/*     if (productInfo) {
+      (async () => {
+        console.log(productInfo);
+        const { data } = await axiosPrivate.post("/product", productInfo);
 
-      /* ( async () => {
-      axios.post(`https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_API_KEY}`)
-        .then (data => {
-          console.log(data);
-        })
-    })() */
-
-
-      if (productInfo) {
-        ( async () => {
-          console.log(productInfo);
-          const { data } = await axiosPrivate.post("/product", productInfo);
-  
-          console.log(data);
-          if (data.success) {
-            toast.success("Successfully added a new product");
-            reset();
-          } else {
-            toast.error("Request failed, Product not added");
-          }
-        
-        })();
-      }
+        console.log(data);
+        if (data.success) {
+          toast.success("Successfully added a new product");
+          reset();
+        } else {
+          toast.error("Request failed, Product not added");
+        }
+      })();
+    } */
   }
 
   return (
@@ -169,7 +172,7 @@ const AddProduct = () => {
 
           {/* image input */}
           <div className="w-full mb-5">
-            {/* <input
+            <input
               {...register("image", {
                 required: {
                   value: true,
@@ -179,8 +182,8 @@ const AddProduct = () => {
               type="file"
               placeholder="Minimum Order"
               className="input input-bordered w-full max-w-xs pt-1.5"
-            /> */}
-            <input
+            />
+            {/* <input
               {...register("image", {
                 required: {
                   value: true,
@@ -194,7 +197,7 @@ const AddProduct = () => {
               type="input"
               placeholder="Image Url"
               className="input input-bordered w-full max-w-xs pt-1.5"
-            />
+            /> */}
             <small className="text-red-400">
               {errors.image && errors.image.message}
             </small>

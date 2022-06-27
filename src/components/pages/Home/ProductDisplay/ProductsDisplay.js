@@ -23,7 +23,7 @@ const ProductsDisplay = () => {
           );
         })}
       </div>
-      <button className="btn btn-sm" onClick={() => navigate('/products')}>Show more</button>
+      <button className={` ${!products && "hidden"} btn btn-sm`} onClick={() => navigate('/products')}>Show more</button>
     </div>
   );
 };

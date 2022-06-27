@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({position}) => {
+  console.log(position);
   return (
-    <footer className="flex flex-col items-center p-10 bg-[#161616] text-[#fffff0]">
-      <div className="w-[99vw] footer md:justify-items-center">
+    <footer className={`${position && position} flex flex-col w-[99.1vw] bottom-0 p-6 bg-[#161616] text-[#fffff0]`}>
+      <div className="footer md:justify-items-center">
         <div>
           <span className="footer-title text-xl opacity-100 text-white">Services</span>
           <Link to="" className="link link-hover text-lg font-medium">Branding</Link>
@@ -27,7 +28,7 @@ const Footer = () => {
         </div>
       </div>
       <h3 
-        className="text-white mt-10">
+        className="text-white text-center mt-10">
         <span className="text-orange-300 mr-4">&copy;</span>
         All copyright reserved to Orbit tools- {new Date().getFullYear()}
         <span className="text-orange-300 ml-4">&copy;</span>

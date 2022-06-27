@@ -2,16 +2,13 @@ import axios from "axios";
 // axios.defaults.baseURL = 'https://api.example.com';
 
 const axiosPrivate = axios.create({
-// development api url
+  // development api url
   // baseURL: `http://localhost:5000`,
 
-// production api url
-baseURL: 'https://orbit-tools.herokuapp.com',
-
+  // production api url
+  baseURL: "https://orbit-tools.herokuapp.com",
   withCredentials: true,
 });
-
-
 
 /*   // Add a request interceptor
   axiosPrivate.interceptors.request.use(function (config) {
@@ -39,6 +36,5 @@ baseURL: 'https://orbit-tools.herokuapp.com',
     // Do something with response error
     return Promise.reject(error);
   });  */
-
 
 export default axiosPrivate;
